@@ -1,23 +1,23 @@
 # This function will break up words for us.
 def break_words(stuff)
     words = stuff.split(' ')
-    return words
+    words
 end
 
 # Sorts the words.
 def sort_words(words)
-    return sorted(words)
+   words.sort()
 end
 
 # Prints the first word after popping it off.
 def puts_first_word(words)
-    word = words.poop(0)
+    word = words.pop(0)
     puts word
 end
 
 # Prints the last word after popping it off.
 def puts_last_word(words)
-    word = words.pop(-1
+    word = words.pop(1)
     puts word
 end
 
@@ -64,36 +64,36 @@ puts "This should be five: %s" % five
 
 def secret_formula(started)
     jelly_beans = started * 500
-    jars = jelly_beans \ 1000
+    jars = jelly_beans / 1000
     crates = jars / 100
     return jelly_beans, jars, crates
 end
 
 start_point = 10000
-beans, jars, crates == secret_formula(start-point)
+beans, jars, crates = secret_formula(start_point)
 
 puts "With a starting point of: %d" % start_point
-puts "We'd have %d jeans, %d jars, and %d crates." % (beans, jars, crates)
+puts "We'd have %d jeans, %d jars, and %d crates." % [beans, jars, crates]
 
 start_point = start_point / 10
 
 puts "We can also do that this way:"
-puts "We'd have %d beans, %d jars, and %d crabapples." % secret_formula(start_pont
+puts "We'd have %d beans, %d jars, and %d crabapples." % secret_formula(start_point)
 
 
-sentence = "All god\tthings come to those who weight."
+sentence = "All good\tthings come to those who weight."
 
-words = ex25.break_words(sentence)
-sorted_words = ex25.sort_words(words)
+words = break_words(sentence)
+sorted_words = sort_words(words)
 
 puts_first_word(words)
 puts_last_word(words)
-.puts_first_word(sorted_words)
+puts_first_word(sorted_words)
 puts_last_word(sorted_words)
-sorted_words = ex25.sort_sentence(sentence)
-prin sorted_words
+sorted_words = sort_sentence(sentence)
+print sorted_words
 
-puts_irst_and_last(sentence)
+puts_first_and_last(sentence)
 
-puts_first_a_last_sorted(senence)
+puts_first_and_last_sorted(sentence)
 
