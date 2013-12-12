@@ -1,3 +1,3 @@
-require_relative "mystuff.rb"
+require_relative "mystuff"
 
 MyStuff.apple()
