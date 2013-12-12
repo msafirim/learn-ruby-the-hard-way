@@ -97,3 +97,42 @@ class Child
 end
 
 son = Child.new()
+
+
+module Others
+
+    def Others.override()
+        puts "OTHER override()"
+    end
+
+    def Others.implicit()
+        puts "OTHER implicit()"
+    end
+
+    def Others.altered()
+        puts "OTHER altered()"
+    end
+end
+
+class Child
+
+    def implicit()
+        Others.implicit()
+    end
+    
+    def override()
+        puts "CHILD override()"
+    end
+
+    def altered()
+        puts "CHILD, BEFORE OTHER altered()"
+        Others.altered()
+        puts "CHILD, AFTER OTHER altered()"
+    end
+end
+
+son = Child.new()
+
+son.implicit()
+son.override()
+son.altered()
