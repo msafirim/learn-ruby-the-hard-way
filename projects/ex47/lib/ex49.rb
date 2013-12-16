@@ -1,3 +1,5 @@
+require_relative 'lexicon'
+
 class ParserError < Exception
 
 end
