@@ -1,6 +1,7 @@
 require 'test/unit'
 require_relative '../lib/map'
 
+
 class MapTests < Test::Unit::TestCase
 
   def test_room()
@@ -36,6 +37,16 @@ class MapTests < Test::Unit::TestCase
   end
 
   def test_gothon_game_map()
+    generic_death = Room.new("death", "You died.")
+    laser_weapon_armory = Room.new("Laser Weapon Armory","They made 
+                                    you learn Gothon insults") 
+
+    START.add_paths({
+       'shoot!' => generic_death,
+       'dodge!' => generic_death,
+       'tell a joke' => laser_weapon_armory
+       })
+
     assert_equal(START.go('shoot!'), generic_death)
     assert_equal(START.go('dodge!'), generic_death)
 
