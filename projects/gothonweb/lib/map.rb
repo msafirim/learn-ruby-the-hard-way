@@ -8,6 +8,10 @@ class Room
     @paths = {}
   end
 
+  def prompt()
+    print "> "
+  end
+
   def go(direction)
     @paths[direction]
   end
@@ -131,3 +135,117 @@ central_corridor.add_paths({
 })
 
 START = central_corridor
+SECOND = laser_weapon_armory
+THIRD = the_bridge
+FOURTH = escape_pod
+END1 = the_end_winner
+END2 = the_end_loser
+DEAD = generic_death
+
+
+puts START.description
+
+compute = 0 
+while compute <= 3
+
+START.prompt()
+action = gets.chomp()
+ 
+
+if action == "shoot!"
+  puts DEAD.description
+  Process.exit(1)
+ 
+elsif action == "dodge!"
+  puts DEAD.description
+  Process.exit(1)
+
+elsif action == "tell a joke"
+  puts SECOND.description
+           
+  code = "%s%s%s" % [rand(9)+1, rand(9)+1, rand(9)+1]
+  #code = '444' ## for testing if "DOES NOT COMPUTE!"
+  print "[keypad]> "
+  guess = gets.chomp()
+  guesses = 0
+
+  while guess != code and guesses < 10
+      puts "BZZZZEDDD!"
+      guesses += 1
+      print "[keypad]> "
+      guess = gets.chomp()
+    end
+
+
+      if guess == code
+        puts THIRD.description
+
+        compute_code = 0 
+        while compute_code <= 3
+
+          THIRD.prompt()
+          action = gets.chomp()
+
+            if action == "throw the bomb"
+              puts DEAD.description
+              Process.exit(1)
+
+            elsif action == "slowly place the bomb"
+              puts FOURTH.description
+
+              good_pod = rand(5)+1 
+              print "[pod #]>"
+              guess = gets.chomp()
+
+                  if guess.to_i != good_pod
+                    puts DEAD.description
+                    Process.exit(1)
+
+                  elsif user_input == "*"
+                    puts END2.description
+                    Process.exit(0)
+                  else 
+                    puts END1.description
+                    Process.exit(0)
+                  end
+
+            else 
+                compute_code +=1
+
+                if compute_code == 1
+                  puts "DOES NOT COMPUTE! Try again"
+                elsif compute_code == 2
+                  puts "DOES NOT COMPUTE! Try again Second time"
+                elsif compute_code == 3
+                  puts "DOES NOT COMPUTE! Try again Last time"
+                else
+                  puts "DOES NOT COMPUTE! Bye! Game Exit"
+                  Process.exit(0)
+                end
+
+            end 
+
+        end #end while
+
+      else
+        puts DEAD.description
+        Process.exit(1)
+      end
+      
+else 
+  compute +=1
+
+  if compute == 1
+    puts "DOES NOT COMPUTE! Try again"
+  elsif compute == 2
+    puts "DOES NOT COMPUTE! Try again Second time"
+  elsif compute == 3
+    puts "DOES NOT COMPUTE! Try again Last time"
+  else
+    puts "DOES NOT COMPUTE! Bye! Game Exit"
+    Process.exit(0)
+  end
+
+end
+
+end
